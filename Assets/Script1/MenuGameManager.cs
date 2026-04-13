@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("GameScene1Spring");
     }
 
     public void QuitGame()

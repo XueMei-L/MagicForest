@@ -15,6 +15,8 @@ public class ParallaxController : MonoBehaviour
     [Range(0.01f, 0.1f)]
     public float parallaxSpeed = 0.05f; // Base parallax speed
 
+    public bool isActive = false;       // for control move with camera
+
     void Start()
     {
         cam = Camera.main.transform;
@@ -61,8 +63,11 @@ public class ParallaxController : MonoBehaviour
 
     void LateUpdate()
     {
-        float distance = cam.position.x - camStartPos.x;
+        if (!isActive) return;
+
         // move with camera
+        float distance = cam.position.x - camStartPos.x;
+
         transform.position = new Vector3(cam.position.x, transform.position.y, transform.position.z);
 
         for (int i = 0; i < backgrounds.Length; i++)
@@ -71,5 +76,11 @@ public class ParallaxController : MonoBehaviour
             Vector2 offset = new Vector2(distance * speed, 0);
             mats[i].SetTextureOffset("_MainTex", offset);
         }
+    }
+
+    public void ActivateParallax()
+    {
+        camStartPos = cam.position; // reset camera position
+        isActive = true;
     }
 }

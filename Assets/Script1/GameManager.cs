@@ -6,11 +6,11 @@ public class GameManager : MonoBehaviour
     public Transform player;
     public Animator playerAnimator;
     public CameraFollow cameraFollow;
+    public ParallaxController parallaxController;
 
-    public Transform PlayerStopPoint;
+    public Transform playerStopPoint;
 
     public float moveSpeed = 2f;
-    public float targetX = 0f;
 
     void Start()
     {
@@ -19,20 +19,43 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EnterGameScene()
     {
+        // Disable camera follow at start
         cameraFollow.isFollowing = false;
 
+        // Disable parallax at start
+        parallaxController.isActive = false;
+
+        // Play walking animation
         playerAnimator.SetBool("isWalking", true);
 
-        while (player.position.x < PlayerStopPoint.position.x)
+        // Move player into scene
+        while (player.position.x < playerStopPoint.position.x - 0.05f)
         {
             player.Translate(Vector3.right * moveSpeed * Time.deltaTime);
             yield return null;
         }
 
+        // Snap player exactly to stop point
+        player.position = new Vector3(
+            playerStopPoint.position.x,
+            player.position.y,
+            player.position.z
+        );
+
+        // Stop animation
         playerAnimator.SetBool("isWalking", false);
 
-        cameraFollow.isFollowing = true;
+        yield return new WaitForSeconds(0.1f); // small delay (optional but smoother)
 
+        // Initialize camera correctly (THIS FIXES YOUR PROBLEM)
+        // cameraFollow.InitializeFollow(0f); // 0 in the middle of camera
+        cameraFollow.InitializeFollow(10f);
+        
+
+        // Activate parallax AFTER camera is stable
+        parallaxController.ActivateParallax();
+
+        // Enable player control (optional)
         // player.GetComponent<PlayerController>().enabled = true;
     }
 }
