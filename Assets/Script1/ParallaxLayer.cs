@@ -14,6 +14,7 @@ public class ParallaxLayer : MonoBehaviour
         startPos = transform.position;
     }
 
+
     void LateUpdate()
     {
         float deltaX = cam.position.x;
