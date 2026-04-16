@@ -9,6 +9,7 @@ TagManager:
   - NoCollis
   - PlatInv
   - Collectible
+  - Door
   layers:
   - Default
   - TransparentFX
