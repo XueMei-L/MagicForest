@@ -29,7 +29,7 @@ using her wand and magical powers to defeat enemies and bring her friends back h
 
 ## 🎮 Controls
 
-- **A / D** → Move left / right  
+- **-> / <-** → Move left / right  
 - **Space** → Jump  
 - **F** → Attack (magic wand)  
 - **M** → Test death animation (debug)  
@@ -38,19 +38,31 @@ using her wand and magical powers to defeat enemies and bring her friends back h
 
 ## 🛠️ Built With
 
-- Unity  
+- Unity 
 - C#  
-- Visual Studio Code  
+- Visual Studio Code
 
 ---
 
 ## 🚀 Future Improvements
+- More scenes with summer, autumn, winter.
+- More enemy of different types.
+- 
 
 ---
 
 ## 👩‍💻 Developer
 
 >> Created by XueMei Lin (A game development student)
+
+---
+
+## 👩‍💻 Development
+
+background with parallax and scolling
+sprite on 2D
+pooling technique
+
 
 ---
 
