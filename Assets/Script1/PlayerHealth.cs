@@ -3,26 +3,26 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-
-    public Image healthBarFill; // Drag HP Fill Image
+    public Image healthBarFill;
 
     void Start()
     {
-        currentHealth = maxHealth;
+        RefreshUI();
+    }
+
+    public void RefreshUI()
+    {
         UpdateHealthBar();
     }
 
     void Update()
     {
-        // TEST: Press J to take damage
+        // TEST
         if (Input.GetKeyDown(KeyCode.J))
         {
             TakeDamage(20);
         }
 
-        // TEST: Press H to heal
         if (Input.GetKeyDown(KeyCode.H))
         {
             Heal(10);
@@ -31,12 +31,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-        currentHealth = Mathf.Max(currentHealth, 0);
+        PlayerData.Instance.currentHP -= amount;
+        PlayerData.Instance.currentHP = Mathf.Max(PlayerData.Instance.currentHP, 0);
 
         UpdateHealthBar();
 
-        if (currentHealth <= 0)
+        if (PlayerData.Instance.currentHP <= 0)
         {
             Die();
         }
@@ -44,16 +44,21 @@ public class PlayerHealth : MonoBehaviour
 
     public void Heal(int amount)
     {
-        currentHealth += amount;
-        currentHealth = Mathf.Min(currentHealth, maxHealth);
+        PlayerData.Instance.currentHP += amount;
+        PlayerData.Instance.currentHP = Mathf.Min(
+            PlayerData.Instance.currentHP,
+            PlayerData.Instance.maxHP
+        );
 
         UpdateHealthBar();
     }
 
     void UpdateHealthBar()
     {
-        healthBarFill.fillAmount = (float)currentHealth / maxHealth;
+        healthBarFill.fillAmount =
+            (float)PlayerData.Instance.currentHP / PlayerData.Instance.maxHP;
     }
+    
 
     void Die()
     {

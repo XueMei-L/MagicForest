@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuScene.unity
     guid: a7352c4202d1a214d89df7e7427fba5f
   - enabled: 1
-    path: Assets/Scenes/RewardExp.unity
-    guid: f6cd78941b701ba4391a29427f7f153e
-  - enabled: 1
     path: Assets/Scenes/GameScene1Spring.unity
     guid: 1a8aed9c3941c574ca81cda378775251
   - enabled: 1
@@ -23,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene4Winter.unity
     guid: beb7f287d0a229d4281c6c0d91e7dc79
+  - enabled: 1
+    path: Assets/Scenes/RewardExp.unity
+    guid: a342b5da22a459345978a9aaabb4cf92
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

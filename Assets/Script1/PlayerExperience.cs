@@ -1,25 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // ⭐ needed for TextMeshPro
+using TMPro;
 
 public class PlayerExperience : MonoBehaviour
 {
-    public int currentExp = 0;
-    public int maxExp = 100;
-    public int level = 1;
-
-    public Image expBarFill;        // Drag Fill Image here
-    public TextMeshProUGUI levelText; // ⭐ Drag Level Text here
+    public Image expBarFill;
+    public TextMeshProUGUI levelText;
 
     void Start()
     {
-        UpdateExpBar();
-        UpdateLevelText();
+        RefreshUI();
     }
 
     void Update()
     {
-        // TEST: Press K to add experience
+        // TEST
         if (Input.GetKeyDown(KeyCode.K))
         {
             AddExp(20);
@@ -28,35 +23,39 @@ public class PlayerExperience : MonoBehaviour
 
     public void AddExp(int amount)
     {
-        currentExp += amount;
+        PlayerData.Instance.currentExp += amount;
 
-        // Check level up
-        if (currentExp >= maxExp)
+        // ⭐ Level up check
+        if (PlayerData.Instance.currentExp >= PlayerData.Instance.maxExp)
         {
             LevelUp();
         }
 
-        UpdateExpBar();
+        RefreshUI();
     }
 
     void LevelUp()
     {
-        level++;
-        currentExp -= maxExp;
-        maxExp += 50;
+        PlayerData.Instance.level++;
+        PlayerData.Instance.currentExp -= PlayerData.Instance.maxExp;
+        PlayerData.Instance.maxExp += 50;
 
-        UpdateLevelText(); // ⭐ update UI
+        Debug.Log("Level Up! → " + PlayerData.Instance.level);
 
-        Debug.Log("Level Up! Current Level: " + level);
+        RefreshUI();
     }
 
-    void UpdateExpBar()
+    void RefreshUI()
     {
-        expBarFill.fillAmount = (float)currentExp / maxExp;
-    }
+        if (expBarFill != null)
+        {
+            expBarFill.fillAmount =
+                (float)PlayerData.Instance.currentExp / PlayerData.Instance.maxExp;
+        }
 
-    void UpdateLevelText()
-    {
-        levelText.text = "Level: " + level;
+        if (levelText != null)
+        {
+            levelText.text = "Level: " + PlayerData.Instance.level;
+        }
     }
 }
