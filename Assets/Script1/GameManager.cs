@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(EnterGameScene());
+        Screen.SetResolution(1920, 1080, false);
     }
 
     private IEnumerator EnterGameScene()

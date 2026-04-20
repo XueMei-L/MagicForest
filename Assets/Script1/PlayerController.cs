@@ -1,23 +1,5 @@
-// using UnityEngine;
-
-// public class PlayerController : MonoBehaviour
-// {
-//     public float speed = 10f;
-
-//     void Update()
-//     {
-//         // get horizontal input
-//         float horizontalInput  = Input.GetAxisRaw("Horizontal");
-
-//         // Create a movement vector
-//         Vector2 movement = new Vector2(horizontalInput, 0f);
-
-//         // Move the object frame rate independently
-//         transform.Translate(movement * speed * Time.deltaTime);
-//     }
-// }
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     // Components
@@ -45,33 +27,30 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Stop all input if the player is dead
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName == "RewardExp")
+        {
+            if (GameManagerSceneReward.Instance == null) return;
+
+            if (!GameManagerSceneReward.Instance.gameStarted || 
+                GameManagerSceneReward.Instance.gameOver)
+                return;
+        }
+
         if (isDead) return;
 
-        // Get horizontal input (-1, 0, 1)
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
 
-        // -------- Movement --------
-        // Apply horizontal velocity while keeping vertical velocity
         rb.linearVelocity = new Vector2(moveHorizontal * speed, rb.linearVelocity.y);
 
-        // -------- Flip character --------
-        // Flip sprite based on movement direction
         if (moveHorizontal < 0)
-        {
-            spriteRenderer.flipX = true; // Facing left
-        }
+            spriteRenderer.flipX = true;
         else if (moveHorizontal > 0)
-        {
-            spriteRenderer.flipX = false; // Facing right
-        }
+            spriteRenderer.flipX = false;
 
-        // -------- Idle / Run animation --------
-        // Set running animation based on movement
         animator.SetBool("isWalking", moveHorizontal != 0);
 
-        // -------- Jump --------
-        // Allow jump only when grounded
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -79,19 +58,11 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
-        // -------- Attack --------
-        // Trigger attack animation
         if (Input.GetKeyDown(KeyCode.F))
-        {
             animator.SetTrigger("attack");
-        }
 
-        // -------- Death --------
-        // Trigger death animation manually (for testing)
         if (Input.GetKeyDown(KeyCode.M))
-        {
             Die();
-        }
     }
 
     void Die()
