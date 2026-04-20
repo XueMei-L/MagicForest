@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro; // ⭐ needed for TextMeshPro
 
 public class PlayerExperience : MonoBehaviour
 {
@@ -7,11 +8,13 @@ public class PlayerExperience : MonoBehaviour
     public int maxExp = 100;
     public int level = 1;
 
-    public Image expBarFill; // Drag your Fill Image here in Inspector
+    public Image expBarFill;        // Drag Fill Image here
+    public TextMeshProUGUI levelText; // ⭐ Drag Level Text here
 
     void Start()
     {
         UpdateExpBar();
+        UpdateLevelText();
     }
 
     void Update()
@@ -27,7 +30,7 @@ public class PlayerExperience : MonoBehaviour
     {
         currentExp += amount;
 
-        // Handle level up
+        // Check level up
         if (currentExp >= maxExp)
         {
             LevelUp();
@@ -42,11 +45,18 @@ public class PlayerExperience : MonoBehaviour
         currentExp -= maxExp;
         maxExp += 50;
 
+        UpdateLevelText(); // ⭐ update UI
+
         Debug.Log("Level Up! Current Level: " + level);
     }
 
     void UpdateExpBar()
     {
         expBarFill.fillAmount = (float)currentExp / maxExp;
+    }
+
+    void UpdateLevelText()
+    {
+        levelText.text = "Level: " + level;
     }
 }
