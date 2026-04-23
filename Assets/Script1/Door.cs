@@ -8,17 +8,35 @@ public class Door : MonoBehaviour
 
     private bool isTransitioning = false;
 
+    void Start()
+    {
+        // Hide the door if it has already been used
+        if (PlayerData.Instance != null && PlayerData.Instance.doorUsed)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Prevent multiple triggers during transition
         if (isTransitioning) return;
 
+        // Only react to player
         if (!collision.CompareTag("Player")) return;
 
         PlayerController player = collision.GetComponent<PlayerController>();
         if (player == null) return;
 
-        // Optional condition (you can remove if not needed)
+        // Optional: require key to enter
         if (!player.hasKey) return;
+
+        // ⭐ Save player's current position before leaving the scene
+        PlayerData.Instance.returnPosition = player.transform.position;
+        PlayerData.Instance.hasReturnPosition = true;
+
+        // ⭐ Mark this door as used
+        PlayerData.Instance.doorUsed = true;
 
         StartCoroutine(Transition());
     }
@@ -27,19 +45,19 @@ public class Door : MonoBehaviour
     {
         isTransitioning = true;
 
-        // 1. Fade out
+        // Fade out before changing scene
         if (FadeController.Instance != null)
         {
             yield return FadeController.Instance.FadeOut();
         }
 
-        // 2. Load next scene
+        // Load the next scene
         SceneManager.LoadScene(nextSceneName);
 
-        // 3. Wait one frame so scene is fully initialized
+        // Wait one frame to ensure scene is loaded
         yield return null;
 
-        // 4. Fade in
+        // Fade in after scene loads
         if (FadeController.Instance != null)
         {
             yield return FadeController.Instance.FadeIn();

@@ -14,49 +14,71 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(EnterGameScene());
         Screen.SetResolution(1920, 1080, false);
+
+        if (PlayerData.Instance.hasReturnPosition)
+        {
+            Debug.Log("Back to position: " + PlayerData.Instance.returnPosition);
+
+            // 1. Restore player position
+            player.position = PlayerData.Instance.returnPosition;
+            PlayerData.Instance.hasReturnPosition = false;
+
+            // 2. reinitialize camera system
+            StartCoroutine(ResumeSceneAfterReturn());
+        }
+        else
+        {
+            StartCoroutine(EnterGameScene());
+        }
+    }
+
+    private IEnumerator ResumeSceneAfterReturn()
+    {
+        yield return null;
+
+        // 1. Ensure camera is active
+        cameraFollow.isFollowing = true;
+
+        // // 2. FORCE camera to snap to player first
+        // cameraFollow.transform.position = new Vector3(
+        //     player.position.x,
+        //     player.position.y +5,
+        //     cameraFollow.transform.position.z
+        // );
+
+        // 3. Reinitialize follow logic AFTER snapping
+        cameraFollow.InitializeFollow(-5f);
+
+        // 4. Reactivate parallax
+        parallaxController.isActive = true;
+        parallaxController.ActivateParallax();
     }
 
     private IEnumerator EnterGameScene()
     {
-        // Disable camera follow at start
         cameraFollow.isFollowing = false;
-
-        // Disable parallax at start
         parallaxController.isActive = false;
 
-        // Play walking animation
         playerAnimator.SetBool("isWalking", true);
 
-        // Move player into scene
         while (player.position.x < playerStopPoint.position.x - 0.05f)
         {
             player.Translate(Vector3.right * moveSpeed * Time.deltaTime);
             yield return null;
         }
 
-        // Snap player exactly to stop point
         player.position = new Vector3(
             playerStopPoint.position.x,
             player.position.y,
             player.position.z
         );
 
-        // Stop animation
         playerAnimator.SetBool("isWalking", false);
 
-        yield return new WaitForSeconds(0.1f); // small delay (optional but smoother)
+        yield return new WaitForSeconds(0.1f);
 
-        // Initialize camera correctly (THIS FIXES YOUR PROBLEM)
-        // cameraFollow.InitializeFollow(0f); // 0 in the middle of camera
         cameraFollow.InitializeFollow(10f);
-        
-
-        // Activate parallax AFTER camera is stable
         parallaxController.ActivateParallax();
-
-        // Enable player control (optional)
-        // player.GetComponent<PlayerController>().enabled = true;
     }
 }

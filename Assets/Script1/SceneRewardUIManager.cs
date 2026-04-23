@@ -14,7 +14,6 @@ public class RewardExpUIManager : MonoBehaviour
 
     void Update()
     {
-        // ⭐实时刷新UI（简单版）
         UpdateUI();
     }
 

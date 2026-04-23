@@ -10,7 +10,7 @@ public class GameManagerSceneReward : MonoBehaviour
     public bool gameOver = false;
 
     [Header("UI")]
-    public GameObject timeoutUI; // ⭐拖入 TimeOut UI
+    public GameObject timeoutUI; 
 
     void Awake()
     {
@@ -27,7 +27,8 @@ public class GameManagerSceneReward : MonoBehaviour
 
     IEnumerator GameTimer()
     {
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(3f);
+        // yield return new WaitForSeconds(20f);
 
         TriggerGameOver();
     }

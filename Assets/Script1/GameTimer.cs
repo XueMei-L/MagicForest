@@ -4,7 +4,7 @@ public class GameTimer : MonoBehaviour
 {
     public static GameTimer Instance;
 
-    public float levelTime = 30f;
+    public float levelTime = 20f;
     private float currentTime;
     private bool isRunning = false;
 
@@ -31,6 +31,12 @@ public class GameTimer : MonoBehaviour
 
     private void Update()
     {
+        // ⭐ TEST ONLY: press Y to force time = 0
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            ForceTimeUp();
+        }
+
         if (!isRunning) return;
 
         currentTime -= Time.deltaTime;
@@ -44,6 +50,14 @@ public class GameTimer : MonoBehaviour
 
             OnTimeUp();
         }
+    }
+
+    // ⭐ NEW TEST FUNCTION (safe addition)
+    private void ForceTimeUp()
+    {
+        currentTime = 0;
+        isRunning = false;
+        OnTimeUp();
     }
 
     private void OnTimeUp()

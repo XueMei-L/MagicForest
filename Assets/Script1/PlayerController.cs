@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
     // -------- Ground detection --------
     private void OnCollisionStay2D(Collision2D collision)
     {
+        // Debug.Log("Collided with: " + collision.gameObject.name);
         if (collision.transform.root.CompareTag("Ground"))
         {
             isGrounded = true;
