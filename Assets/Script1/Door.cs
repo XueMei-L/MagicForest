@@ -8,6 +8,8 @@ public class Door : MonoBehaviour
 
     private bool isTransitioning = false;
 
+    public GameObject keyUI; // ⭐ UI icon
+
     void Start()
     {
         // Hide the door if it has already been used
@@ -19,7 +21,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Prevent multiple triggers during transition
+        // Prevent multiple triggers
         if (isTransitioning) return;
 
         // Only react to player
@@ -28,14 +30,25 @@ public class Door : MonoBehaviour
         PlayerController player = collision.GetComponent<PlayerController>();
         if (player == null) return;
 
-        // Optional: require key to enter
-        if (!player.hasKey) return;
+        // ⭐ 用 PlayerData 判断（不要用 player.hasKey）
+        if (!PlayerData.Instance.hasKey)
+        {
+            Debug.Log("Need a key!");
+            return;
+        }
 
-        // ⭐ Save player's current position before leaving the scene
+        // ⭐ 消耗钥匙
+        PlayerData.Instance.hasKey = false;
+
+        // ⭐ UI消失
+        if (keyUI != null)
+            keyUI.SetActive(false);
+
+        // ⭐ 保存玩家位置
         PlayerData.Instance.returnPosition = player.transform.position;
         PlayerData.Instance.hasReturnPosition = true;
 
-        // ⭐ Mark this door as used
+        // ⭐ 标记门已使用
         PlayerData.Instance.doorUsed = true;
 
         StartCoroutine(Transition());
@@ -45,19 +58,18 @@ public class Door : MonoBehaviour
     {
         isTransitioning = true;
 
-        // Fade out before changing scene
+        // Fade out
         if (FadeController.Instance != null)
         {
             yield return FadeController.Instance.FadeOut();
         }
 
-        // Load the next scene
+        // Load next scene
         SceneManager.LoadScene(nextSceneName);
 
-        // Wait one frame to ensure scene is loaded
         yield return null;
 
-        // Fade in after scene loads
+        // Fade in
         if (FadeController.Instance != null)
         {
             yield return FadeController.Instance.FadeIn();

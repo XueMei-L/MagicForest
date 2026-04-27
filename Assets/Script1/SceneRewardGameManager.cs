@@ -10,7 +10,7 @@ public class GameManagerSceneReward : MonoBehaviour
     public bool gameOver = false;
 
     [Header("UI")]
-    public GameObject timeoutUI; 
+    public GameObject timeoutUI;
 
     void Awake()
     {
@@ -21,24 +21,24 @@ public class GameManagerSceneReward : MonoBehaviour
     {
         gameStarted = true;
         gameOver = false;
-
-        StartCoroutine(GameTimer());
     }
 
-    IEnumerator GameTimer()
+    // ⭐ called by GameTimer
+    public void TriggerGameOver()
     {
-        yield return new WaitForSeconds(3f);
-        // yield return new WaitForSeconds(20f);
+        if (gameOver) return;
 
-        TriggerGameOver();
-    }
-
-    void TriggerGameOver()
-    {
         gameOver = true;
         gameStarted = false;
 
-        Time.timeScale = 0f; // ⭐冻结所有
+        StartCoroutine(GameOverRoutine());
+    }
+
+    private IEnumerator GameOverRoutine()
+    {
+        yield return new WaitForSeconds(0.2f); // small delay for safety
+
+        Time.timeScale = 0f;
 
         if (timeoutUI != null)
             timeoutUI.SetActive(true);
@@ -46,7 +46,7 @@ public class GameManagerSceneReward : MonoBehaviour
 
     public void BackToMain()
     {
-        Time.timeScale = 1f; // ⭐恢复时间
+        Time.timeScale = 1f;
         SceneManager.LoadScene("GameScene1Spring");
     }
 }

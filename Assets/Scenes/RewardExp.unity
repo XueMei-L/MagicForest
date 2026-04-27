@@ -170,7 +170,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20
+  m_Text: 3
 --- !u!222 &175566
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4637,7 +4637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7570511c9b8414d964d2cb7eac28eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTime: 20
+  levelTime: 3
 --- !u!4 &2119126231
 Transform:
   m_ObjectHideFlags: 0

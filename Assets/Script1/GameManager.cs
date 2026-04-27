@@ -7,14 +7,13 @@ public class GameManager : MonoBehaviour
     public Animator playerAnimator;
     public CameraFollow cameraFollow;
     public ParallaxController parallaxController;
-
     public Transform playerStopPoint;
 
     public float moveSpeed = 2f;
 
     void Start()
     {
-        Screen.SetResolution(1920, 1080, false);
+        // Screen.SetResolution(1920, 1080, false);
 
         if (PlayerData.Instance.hasReturnPosition)
         {
@@ -31,26 +30,24 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(EnterGameScene());
         }
+        
+        // for key
+        // {
+        //     if (PlayerData.Instance.hasKey)
+        //     {
+        //         keyUI.SetActive(true);
+        //     }
+        //     else
+        //     {
+        //         keyUI.SetActive(false);
+        //     }
+        // }
     }
 
     private IEnumerator ResumeSceneAfterReturn()
     {
         yield return null;
 
-        // 1. Ensure camera is active
-        cameraFollow.isFollowing = true;
-
-        // // 2. FORCE camera to snap to player first
-        // cameraFollow.transform.position = new Vector3(
-        //     player.position.x,
-        //     player.position.y +5,
-        //     cameraFollow.transform.position.z
-        // );
-
-        // 3. Reinitialize follow logic AFTER snapping
-        cameraFollow.InitializeFollow(-5f);
-
-        // 4. Reactivate parallax
         parallaxController.isActive = true;
         parallaxController.ActivateParallax();
     }

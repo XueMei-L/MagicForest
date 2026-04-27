@@ -69,3 +69,8 @@ pooling technique
 ## 📌 Status
 
 This project is currently in development.
+
+
+要修改的地方
+把debug log 删除
+scenereward要改回来

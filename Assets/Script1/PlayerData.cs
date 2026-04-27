@@ -1,8 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
     public static PlayerData Instance;
+    
+    public bool hasKey = false;
+
+    public HashSet<string> openedChests = new HashSet<string>();
 
     [Header("EXP")]
     public int currentExp = 0;
