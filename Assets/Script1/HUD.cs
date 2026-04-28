@@ -8,7 +8,7 @@ public class HUD : MonoBehaviour
     public Text timerText;
 
     [Header("Key UI")]
-    public GameObject keyUI; // ⭐ 加这一行
+    public GameObject keyUI;
 
     private void Awake()
     {
@@ -17,7 +17,6 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
-        // ⭐ 初始化钥匙UI状态
         if (PlayerData.Instance != null)
         {
             if (PlayerData.Instance.hasKey)

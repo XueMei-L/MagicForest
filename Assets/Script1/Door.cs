@@ -8,8 +8,8 @@ public class Door : MonoBehaviour
 
     private bool isTransitioning = false;
 
-    public GameObject keyUI; // ⭐ UI icon
-
+    public GameObject keyUI;
+    
     void Start()
     {
         // Hide the door if it has already been used
@@ -30,25 +30,25 @@ public class Door : MonoBehaviour
         PlayerController player = collision.GetComponent<PlayerController>();
         if (player == null) return;
 
-        // ⭐ 用 PlayerData 判断（不要用 player.hasKey）
+        // check user has key?
         if (!PlayerData.Instance.hasKey)
         {
             Debug.Log("Need a key!");
             return;
         }
 
-        // ⭐ 消耗钥匙
+        // set hasKey false
         PlayerData.Instance.hasKey = false;
 
-        // ⭐ UI消失
+        // UI disapear
         if (keyUI != null)
             keyUI.SetActive(false);
 
-        // ⭐ 保存玩家位置
+        // save player position
         PlayerData.Instance.returnPosition = player.transform.position;
         PlayerData.Instance.hasReturnPosition = true;
 
-        // ⭐ 标记门已使用
+        // Set dorr true
         PlayerData.Instance.doorUsed = true;
 
         StartCoroutine(Transition());
