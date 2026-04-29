@@ -35,7 +35,7 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed);
     }
 
-    // ⭐ Force camera to snap instantly to player position
+    // Force camera to snap instantly to player position
     public void SnapToPlayer()
     {
         if (player == null) return;
@@ -46,7 +46,7 @@ public class CameraFollow : MonoBehaviour
         transform.position = targetPos;
     }
 
-    // ⭐ Recalculate offset (VERY IMPORTANT)
+    // Recalculate offset (VERY IMPORTANT)
     public void ResetOffset()
     {
         if (player == null) return;
@@ -54,7 +54,7 @@ public class CameraFollow : MonoBehaviour
         offset = transform.position - player.position;
     }
 
-    // ⭐ Initialize camera correctly (BEST METHOD)
+    // Initialize camera correctly (BEST METHOD)
     public void InitializeFollow(float offsetX = 0f)
     {
         if (player == null) return;

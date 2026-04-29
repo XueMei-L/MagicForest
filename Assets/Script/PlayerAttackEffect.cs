@@ -21,7 +21,6 @@ public class PlayerAttackEffect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // ⭐ 碰到敌人
         if (collision.CompareTag("Enemy"))
         {
             EnemyHealth enemy = collision.GetComponent<EnemyHealth>();

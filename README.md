@@ -1,76 +1,201 @@
 # 🌲✨ Magic Forest
 
-## 🎮 About the Game
+## 🎮 Descripción del Proyecto
 
-**Magic Forest** is a 2D action-adventure game where a young magical girl explores a mysterious enchanted forest.  
-She fights monsters, discovers secrets, and embarks on a journey to rescue her lost friends.
+**Magic Forest** es un prototipo de videojuego 2D tipo *side-scroller* desarrollado en Unity.
 
----
+El jugador controla a un personaje que explora un bosque mágico, lucha contra enemigos y gana experiencia para progresar a lo largo de diferentes escenas.
 
-## 🧙‍♀️ Story
-
-A peaceful village was once protected by the magic of the forest.  
-One day, dark creatures invaded and kidnapped her friends.
-
-Now, the young magic girl sets out alone into the **Magic Forest**,  
-using her wand and magical powers to defeat enemies and bring her friends back home.
+El objetivo principal del proyecto es aplicar los conceptos técnicos trabajados en clase en el desarrollo de un prototipo funcional.
 
 ---
 
-## 🎯 Gameplay Features
+## 🎯 Objetivos del Proyecto
 
-- 🌟 2D side-scrolling exploration  
-- 🪄 Magic wand attack system  
-- 👾 Monster enemies  
-- 🏃 Movement, jump, and combat mechanics  
-- 🌲 Forest-themed levels  
+En este prototipo se han implementado las siguientes mecánicas y sistemas requeridos:
 
----
+* Movimiento del personaje
+  * Mover izquierda y derecha
+  * Salto
+  * Ataque
+* Sistema de animaciones
+* Recolección de objetos usando la tecnica de pooling
+* El uso de Sonido
 
-## 🎮 Controls
-
-- **-> / <-** → Move left / right  
-- **Space** → Jump  
-- **F** → Attack (magic wand)  
-- **M** → Test death animation (debug)  
-
----
-
-## 🛠️ Built With
-
-- Unity 
-- C#  
-- Visual Studio Code
+* Scrolling y Parallax del fondo
+* Uso de Tilemap con múltiples capas
+* Sistema de UI
+* Eventos de juego (colisiones, triggers, UI)
+* Control de cámara con Cinemachine
 
 ---
 
-## 🚀 Future Improvements
-- More scenes with summer, autumn, winter.
-- More enemy of different types.
-- 
+## 🧩 Implementación Técnica
+
+### ⭐ Sistema de Jugador y sistema de animaciones
+* Uso de Animator Controller con estados:
+  * Idle
+  * WalkRight
+  * Attack
+  * Death
+* Transiciones entre estados
+* Uso de **Animation Events** para sincronizar animación y lógica
+![alt text](image.png)
+---
+
+### 👾 Sistema de Enemigos
+
+* IA básica de patrulla entre dos puntos
+* Movimiento mediante físicas (Rigidbody2D)
+* Sistema de daño por colisión
+* Enemigo tipo boss con ataque periódico (spawn de proyectiles)
 
 ---
 
-## 👩‍💻 Developer
+### 🔥 Sistema de Combate
 
->> Created by XueMei Lin (A game development student)
-
----
-
-## 👩‍💻 Development
-
-background with parallax and scolling
-sprite on 2D
-pooling technique
-
+* Ataque del jugador mediante efectos (prefabs)
+* Detección de colisiones entre ataque y enemigo
+* Sistema de daño
+* Feedback visual básico
 
 ---
 
-## 📌 Status
+### ⭐ Sistema de Experiencia y Nivel
 
-This project is currently in development.
+* Ganancia de experiencia al derrotar enemigos o recolectar objetos
+* Sistema de subida de nivel
+* Incremento progresivo del requisito de experiencia
+* Actualización dinámica de la UI
 
+---
 
-要修改的地方
-把debug log 删除
-scenereward要改回来
+### 🎁 Object Pooling
+
+* Implementado en la escena de recompensa
+* Reutilización de objetos en lugar de instanciación/destrucción constante
+* Mejora del rendimiento y gestión de memoria
+
+---
+
+### 🌲 Sistema de Tilemap
+
+Uso de Tilemap para la construcción del nivel con varias capas:
+
+* Capa de suelo (colisiones)
+* Capa de decoración
+* Capa de elementos interactivos
+
+Permite separar la lógica del juego de los elementos visuales.
+
+---
+
+### 🌄 Fondos (Parallax y Scrolling)
+
+* Parallax en la escena principal para simular profundidad
+* Scrolling en la escena de recompensa
+
+---
+
+### 🎮 Gestión de Escenas
+
+* Múltiples escenas:
+
+  * Escena principal
+  * Escena de recompensa
+* Transiciones entre escenas
+* Uso de triggers para cambio de escena
+
+---
+
+### 🧠 Sistema de Eventos
+
+* Eventos basados en colisiones (OnCollision / OnTrigger)
+* Eventos de UI (botones, paneles)
+* Eventos de juego (puertas, recompensas, fin de nivel)
+
+---
+
+### 🖥️ Interfaz de Usuario (UI)
+
+* Barra de vida
+* Barra de experiencia
+* Indicador de llave
+* Panel de fin de nivel
+* Interacción mediante botones
+
+---
+
+### 🎥 Cámara (Cinemachine)
+
+* Uso de Cinemachine Virtual Camera
+* Seguimiento del jugador
+* Control del encuadre
+
+---
+
+### 🔊 Sistema de Audio
+
+* Uso de AudioMixer para:
+
+  * Música de fondo
+  * Efectos de sonido
+  * Control general del audio
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+* Unity
+* C#
+* Cinemachine
+* Tilemap
+* UI System
+* AudioMixer
+
+---
+
+## 📊 Relación con la Rúbrica de Evaluación
+
+* **Originalidad** → Concepto narrativo propio
+* **Complejidad del mapa** → Uso de Tilemap con múltiples capas
+* **Calidad del código** → Scripts organizados por sistemas
+* **Complejidad de escenas** → Uso de varias escenas con lógica
+* **Interfaz de usuario** → UI funcional y dinámica
+* **Animaciones** → Estados múltiples y eventos
+* **Cámara** → Implementación con Cinemachine
+* **Físicas** → Uso de Rigidbody2D y colisiones
+* **Gestión de recursos** → Object Pooling
+* **Fondos** → Parallax y scrolling
+
+---
+
+## 🚀 Desarrollo Futuro
+
+### Funcionalidades pendientes
+
+* [ ] Sistema de cartas (selección de mejoras al subir nivel)
+* [ ] Sistema de estadísticas (vida, ataque, defensa)
+* [ ] Más enemigos y comportamientos
+* [ ] Nuevas escenas (verano, otoño, invierno)
+* [ ] Mejora de la UI
+* [ ] Sistema de guardado
+
+---
+
+## 📌 Estado del Proyecto
+
+🚧 Prototipo funcional (Primera versión completada)
+
+---
+
+## 👩‍💻 Autor
+
+XueMei Lin
+Estudiante de Máster en Desarrollo de Videojuegos
+
+---
+
+## 🎥 Portfolio
+
+El proyecto incluye un video explicativo en inglés donde se presenta el prototipo desde una perspectiva técnica.

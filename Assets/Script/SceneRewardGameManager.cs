@@ -23,7 +23,6 @@ public class GameManagerSceneReward : MonoBehaviour
         gameOver = false;
     }
 
-    // ⭐ called by GameTimer
     public void TriggerGameOver()
     {
         if (gameOver) return;

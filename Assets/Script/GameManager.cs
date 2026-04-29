@@ -13,8 +13,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // Screen.SetResolution(1920, 1080, false);
-
         if (PlayerData.Instance.hasReturnPosition)
         {
             Debug.Log("Back to position: " + PlayerData.Instance.returnPosition);
@@ -30,18 +28,6 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(EnterGameScene());
         }
-        
-        // for key
-        // {
-        //     if (PlayerData.Instance.hasKey)
-        //     {
-        //         keyUI.SetActive(true);
-        //     }
-        //     else
-        //     {
-        //         keyUI.SetActive(false);
-        //     }
-        // }
     }
 
     private IEnumerator ResumeSceneAfterReturn()

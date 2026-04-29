@@ -54,7 +54,6 @@ public class GameTimer : MonoBehaviour
     {
         Debug.Log("Time is up!");
 
-        // ⭐ call GameManager directly
         GameManagerSceneReward.Instance?.TriggerGameOver();
     }
 }

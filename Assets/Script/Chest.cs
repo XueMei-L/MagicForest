@@ -18,8 +18,7 @@ public class Chest : MonoBehaviour
         {
             isOpened = true;
 
-            // 直接设置为打开状态
-            animator.Play("OpenChest", 0, 1f); // 跳到动画结尾
+            animator.Play("OpenChest", 0, 1f);
         }
 
     }

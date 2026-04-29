@@ -15,7 +15,7 @@ public class EnemyDamagePlayer : MonoBehaviour
         isTouching = true;
         timer = 0f;
 
-        DealDamage(collision); // 立刻扣一次
+        DealDamage(collision);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

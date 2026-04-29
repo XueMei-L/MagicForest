@@ -76,7 +76,6 @@ public class ObjectPoolManager : MonoBehaviour
         float camX = cam.transform.position.x;
         float camY = cam.transform.position.y;
 
-        // 👉 限制 Y 在“下半屏”
         float minY = camY - height + 5;
         float maxY = camY;
 

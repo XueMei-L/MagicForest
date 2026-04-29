@@ -54,7 +54,7 @@ public class StarCoinPrefab : MonoBehaviour
 
             if (playerExp != null)
             {
-                playerExp.AddExp(expValue); // ⭐ 加经验
+                playerExp.AddExp(expValue);
             }
 
             poolManager.ReturnToPool(gameObject);

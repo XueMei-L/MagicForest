@@ -20,7 +20,6 @@ public class FadeController : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // 🔥 VERY IMPORTANT: make sure reference is valid
         if (fadeImage == null)
         {
             fadeImage = GetComponentInChildren<Image>();

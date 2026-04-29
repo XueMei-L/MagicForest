@@ -26,7 +26,6 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log("Enemy Died");
 
-        // ⭐ Give EXP
         if (PlayerExperience.Instance != null)
         {
             PlayerExperience.Instance.AddExp(50);
