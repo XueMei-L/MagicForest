@@ -17,6 +17,12 @@ public class MainMenu : MonoBehaviour
         if (isStarting) return;
 
         isStarting = true;
+
+        if (PlayerData.Instance != null)
+        {
+            PlayerData.Instance.ResetData();
+        }
+        
         StartCoroutine(StartGameSequence());
     }
 

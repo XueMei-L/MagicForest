@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
 
+        // for testing
         if (Input.GetKeyDown(KeyCode.F))
         {
             animator.SetTrigger("attack");

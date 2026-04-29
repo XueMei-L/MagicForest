@@ -3,6 +3,7 @@ using UnityEngine;
 public class EndLevelDoor : MonoBehaviour
 {
     public GameObject endPanel;
+    public GameObject exitButton;
 
     private bool triggered = false;
 
@@ -19,8 +20,8 @@ public class EndLevelDoor : MonoBehaviour
 
     void ShowEndUI()
     {
-        if (endPanel != null)
-            endPanel.SetActive(true);
+        endPanel.SetActive(true);
+        exitButton.SetActive(true);
 
         Time.timeScale = 0f;
     }

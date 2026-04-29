@@ -19,6 +19,15 @@ public class PlayerExperience : MonoBehaviour
         RefreshUI();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            AddExp(50);
+            Debug.Log("Add hp 50");
+        }
+    }
+
     public void AddExp(int amount)
     {
         PlayerData.Instance.currentExp += amount;

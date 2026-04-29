@@ -12,7 +12,7 @@ public class PlayerData : MonoBehaviour
     [Header("EXP")]
     public int currentExp = 0;
     public int maxExp = 100;
-    public int level = 1;
+    public int level = 0;
 
     [Header("HP")]
     public int currentHP = 100;
@@ -35,5 +35,17 @@ public class PlayerData : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    
+    public void ResetData()
+    {
+        currentHP = maxHP;
+
+        currentExp = 0;
+        level = 0;
+
+        hasKey = false;
+
+        Debug.Log("Player data reset!");
     }
 }

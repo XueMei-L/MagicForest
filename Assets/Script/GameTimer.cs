@@ -5,7 +5,7 @@ public class GameTimer : MonoBehaviour
     public static GameTimer Instance;
 
     // public float levelTime = 20f;
-    public float levelTime = 3f;
+    public float levelTime = 10f;
     private float currentTime;
     private bool isRunning = false;
 

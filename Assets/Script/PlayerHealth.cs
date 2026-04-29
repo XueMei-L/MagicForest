@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
     public Image healthBarFill;
+
+    public TextMeshProUGUI HpText;
 
     void Start()
     {
@@ -18,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         // TEST
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             TakeDamage(20);
         }
@@ -62,10 +65,12 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
-    void UpdateHealthBar()
+    void UpdateHealthBar()  
     {
         healthBarFill.fillAmount =
             (float)PlayerData.Instance.currentHP / PlayerData.Instance.maxHP;
+        
+        HpText.text = "HP: " + PlayerData.Instance.currentHP;
     }
-    
+
 }
