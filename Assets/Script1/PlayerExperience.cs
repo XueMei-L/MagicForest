@@ -4,53 +4,46 @@ using TMPro;
 
 public class PlayerExperience : MonoBehaviour
 {
+    public static PlayerExperience Instance;
+
     public Image expBarFill;
     public TextMeshProUGUI levelText;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
         RefreshUI();
     }
 
-    void Update()
-    {
-        // TEST
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            AddExp(20);
-        }
-    }
-
     public void AddExp(int amount)
     {
         PlayerData.Instance.currentExp += amount;
 
-        // ⭐ Level up check
-        if (PlayerData.Instance.currentExp >= PlayerData.Instance.maxExp)
+        while (PlayerData.Instance.currentExp >= PlayerData.Instance.maxExp)
         {
-            LevelUp();
+            PlayerData.Instance.currentExp -= PlayerData.Instance.maxExp;
+            PlayerData.Instance.level++;
+            PlayerData.Instance.maxExp += 50;
+
+            Debug.Log("Level Up! → " + PlayerData.Instance.level);
         }
-
-        RefreshUI();
-    }
-
-    void LevelUp()
-    {
-        PlayerData.Instance.level++;
-        PlayerData.Instance.currentExp -= PlayerData.Instance.maxExp;
-        PlayerData.Instance.maxExp += 50;
-
-        Debug.Log("Level Up! → " + PlayerData.Instance.level);
 
         RefreshUI();
     }
 
     void RefreshUI()
     {
+        if (PlayerData.Instance == null) return;
+
         if (expBarFill != null)
         {
             expBarFill.fillAmount =
-                (float)PlayerData.Instance.currentExp / PlayerData.Instance.maxExp;
+                (float)PlayerData.Instance.currentExp /
+                PlayerData.Instance.maxExp;
         }
 
         if (levelText != null)

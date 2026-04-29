@@ -14,8 +14,10 @@ public class PlayerController : MonoBehaviour
     // State control
     private bool isGrounded = true;
     private bool isDead = false;
-
     public bool hasKey = true;
+
+    // attackeffect
+    public GameObject starEffectPrefab;
 
     void Start()
     {
@@ -59,22 +61,30 @@ public class PlayerController : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.F))
+        {
             animator.SetTrigger("attack");
+        }
 
         if (Input.GetKeyDown(KeyCode.M))
             Die();
     }
 
-    void Die()
+    public void Die()
     {
-        // Set player as dead
+        if (isDead) return;
+
         isDead = true;
 
         // Stop movement
         rb.linearVelocity = Vector2.zero;
 
-        // Play death animation
+        // Disable input
+        this.enabled = false;
+
+        // Play animation
         animator.SetTrigger("die");
+
+        Debug.Log("Player Died");
     }
 
     // -------- Ground detection --------
@@ -92,5 +102,17 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+    
+    void SpawnStarEffect()
+    {
+        int dir = spriteRenderer.flipX ? -1 : 1;
+
+        Vector3 spawnPos = transform.position + new Vector3(dir * 1f, 0, 0);
+
+        GameObject star = Instantiate(starEffectPrefab, spawnPos, Quaternion.identity);
+
+        PlayerAttackEffect effect = star.GetComponent<PlayerAttackEffect>();
+        effect.Init(dir);
     }
 }

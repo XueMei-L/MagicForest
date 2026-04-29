@@ -31,14 +31,23 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if (PlayerData.Instance == null) return;
+
         PlayerData.Instance.currentHP -= amount;
         PlayerData.Instance.currentHP = Mathf.Max(PlayerData.Instance.currentHP, 0);
 
         UpdateHealthBar();
 
+        Debug.Log("Player HP: " + PlayerData.Instance.currentHP);
+
         if (PlayerData.Instance.currentHP <= 0)
         {
-            Die();
+            PlayerController controller = GetComponent<PlayerController>();
+
+            if (controller != null)
+            {
+                controller.Die();
+            }
         }
     }
 
@@ -59,9 +68,4 @@ public class PlayerHealth : MonoBehaviour
             (float)PlayerData.Instance.currentHP / PlayerData.Instance.maxHP;
     }
     
-
-    void Die()
-    {
-        Debug.Log("Player Died");
-    }
 }

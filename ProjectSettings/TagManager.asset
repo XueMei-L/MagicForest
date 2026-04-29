@@ -10,6 +10,7 @@ TagManager:
   - PlatInv
   - Collectible
   - Door
+  - Enemy
   layers:
   - Default
   - TransparentFX

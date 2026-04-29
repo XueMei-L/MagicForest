@@ -36,23 +36,4 @@ public class PlayerData : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    // -----------------------------
-    // RESET (only when restarting game)
-    // -----------------------------
-    
-    // public void ResetData()
-    // {
-    //     currentExp = 0;
-    //     maxExp = 100;
-    //     level = 1;
-
-    //     currentHP = maxHP;
-
-    //     returnPosition = Vector3.zero;
-    //     hasReturnPosition = false;
-    //     doorUsed = false;
-
-    //     Debug.Log("PlayerData has been reset");
-    // }
 }
