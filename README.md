@@ -186,4 +186,14 @@ Permite separar la lógica del juego de los elementos visuales.
 
 ![alt text](./imgs/Unity_8sMIRayONB.gif)
 
+![alt text](./imgs/Unity_rtnXYre8KD.gif)
 
+![alt text](./imgs/Unity_lPx6kCGNZI.gif)
+
+![alt text](./imgs/Unity_AKXEsIm6WK.gif)
+
+![alt text](./imgs/Unity_DDRznVW7Ag.gif)
+
+![alt text](./imgs/Unity_zuJ5Cn5pNy.gif)
+
+![alt text](./imgs/Unity_ETLRnRHmqh.gif)
