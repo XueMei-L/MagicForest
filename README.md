@@ -10,6 +10,22 @@ El objetivo principal del proyecto es aplicar los conceptos técnicos trabajados
 
 ---
 
+## 👩‍💻 Autor
+
+**XueMei Lin**
+
+Una estudiante de Máster en Desarrollo de Videojuegos en la Universidad de La Laguna
+
+**!!El autor tiene todo el derecho del juego!!**
+
+---
+
+## 📌 Estado del Proyecto
+
+* Prototipo funcional (Primera versión completada)
+
+---
+
 ## 🎯 Objetivos del Proyecto
 
 En este prototipo se han implementado las siguientes mecánicas y sistemas requeridos:
@@ -50,23 +66,23 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 * Movimiento animaciones de desplazamiento
 
 * Enemigo Básico
-  ![alt text](Unity_oYG2hug413.gif)
+  ![alt text](./imgs/Unity_oYG2hug413.gif)
 * Enemigo Boss
-  ![alt text](Unity_VftSjPFT5U.gif)
+  ![alt text](./imgs/Unity_VftSjPFT5U.gif)
 ---
 
 ### ⭐ Parte del perfil
 
 * Obtener experiencia cuando mata a un enemigo o recolectar objetos
 * Perdida de vida cuando un enemigo causa daño al jugador
-![alt text](Unity_qSceVfu1d5-1.gif)
+![alt text](./imgs/Unity_qSceVfu1d5-1.gif)
 ---
 
 ### 🎁 Object Pooling
 
 * Implementado en la escena de recompensa
 * Reutilización de objetos en lugar de instanciación/destrucción constante que ayuda a mejorar el rendimiento y la gestión de memoria
-![alt text](Unity_SbhvpjYzZo.gif)
+![alt text](./imgs/Unity_SbhvpjYzZo.gif)
 ---
 
 ### 🌲 Sistema de Tilemap
@@ -74,11 +90,11 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 Uso de Tilemap para la construcción del nivel con varias capas:
 
 * Capa de suelo (colisiones)
-  ![alt text](image-1.png)
+  ![alt text](./imgs/image-1.png)
 * Capa de decoración
-  ![alt text](image-2.png)
+  ![alt text](./imgs/image-2.png)
 * Capa de elementos interactivos
-  ![alt text](image-3.png)
+  ![alt text](./imgs/image-3.png)
 
 Permite separar la lógica del juego de los elementos visuales.
 
@@ -87,45 +103,46 @@ Permite separar la lógica del juego de los elementos visuales.
 ### 🌄 Fondos (Parallax y Scrolling)
 
 * Parallax en la escena principal para simular profundidad
-  ![alt text](image-4.png)
-  ![alt text](Unity_sEfY9BCDxK.gif)
+  ![alt text](./imgs/image-4.png)
+  ![alt text](./imgs/Unity_sEfY9BCDxK.gif)
 * Scrolling en la escena de recompensa
-  ![alt text](Unity_fB3DEwIiHK.gif)
+  ![alt text](./imgs/Unity_fB3DEwIiHK.gif)
 
 ---
 
 ### 🎮 Escenas implementadas
 
-* Menú principal con sistema de inicio y salida del juego  
-* Escena principal (bosque en primavera) con exploración, combate y mecánicas principales  
-* Escena de recompensa con sistema de recolección y object pooling  
-
+* Menú principal con sistema de inicio y salida del juego
+  ![alt text](./imgs/image-5.png)
+* Escena principal (bosque en primavera) con exploración, combate y mecánicas principales
+  ![alt text](./imgs/image-6.png)
+* Escena de recompensa con sistema de recolección y object pooling
+  ![alt text](./imgs/image-7.png)
 
 ---
 
 ### 🧠 Sistema de Eventos
 
-* Eventos basados en colisiones (OnCollision / OnTrigger)
-* Eventos de UI (botones, paneles)
-* Eventos de juego (puertas, recompensas, fin de nivel)
-
+* Eventos de recolección de objetos y obtención de experiencia  
+* Eventos de UI:
+  * Mostrar la llave en el HUD al recogerla  
+  * Actualización de la barra de vida  
+  * Actualización de la barra de experiencia  
+  * Interacción con botones  
+  * Activación de paneles (fin de nivel, información, etc.)  
+* Eventos de juego:
+  * Apertura de puertas condicionada cuando el jugador tenga la llave  
+  * El cambio de escena mediante triggers  
+  
 ---
 
-### 🖥️ Interfaz de Usuario (UI)
-
-* Barra de vida
-* Barra de experiencia
-* Indicador de llave
-* Panel de fin de nivel
-* Interacción mediante botones
-
----
-
-### 🎥 Cámara (Cinemachine)
-
+### 🎥 Cámara (El uso de Cinemachine)
+  ![alt text](./imgs/Unity_JsLJSQBjvA.gif)
 * Uso de Cinemachine Virtual Camera
 * Seguimiento del jugador
-* Control del encuadre
+  
+* Control del borde
+  ![alt text](./imgs/image-8.png)
 
 ---
 
@@ -136,32 +153,13 @@ Permite separar la lógica del juego de los elementos visuales.
   * Música de fondo
   * Efectos de sonido
   * Control general del audio
-
+  ![alt text](./imgs/Unity_dqF9os9JVA.gif)
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
 * Unity
 * C#
-* Cinemachine
-* Tilemap
-* UI System
-* AudioMixer
-
----
-
-## 📊 Relación con la Rúbrica de Evaluación
-
-* **Originalidad** → Concepto narrativo propio
-* **Complejidad del mapa** → Uso de Tilemap con múltiples capas
-* **Calidad del código** → Scripts organizados por sistemas
-* **Complejidad de escenas** → Uso de varias escenas con lógica
-* **Interfaz de usuario** → UI funcional y dinámica
-* **Animaciones** → Estados múltiples y eventos
-* **Cámara** → Implementación con Cinemachine
-* **Físicas** → Uso de Rigidbody2D y colisiones
-* **Gestión de recursos** → Object Pooling
-* **Fondos** → Parallax y scrolling
 
 ---
 
@@ -170,27 +168,14 @@ Permite separar la lógica del juego de los elementos visuales.
 ### Funcionalidades pendientes
 
 * [ ] Sistema de cartas (selección de mejoras al subir nivel)
-* [ ] Sistema de estadísticas (vida, ataque, defensa)
-* [ ] Más enemigos y comportamientos
+* [ ] Sistema de estadísticas (vida, ataque, defensa)(al final del juego)
+* [ ] Más tipos de enemigos y comportamientos
 * [ ] Nuevas escenas (verano, otoño, invierno)
-* [ ] Mejora de la UI
-* [ ] Sistema de guardado
+* [ ] Mejora de la UI, añadir configuraciones u mejora de los UI existentes
+* [ ] Más animaciones del jugador o enemigo
+* [ ] Diseñar más personajes que puede el usuario puede selecionar 
 
 ---
 
-## 📌 Estado del Proyecto
+## 🎮 Algunos Gameplay
 
-🚧 Prototipo funcional (Primera versión completada)
-
----
-
-## 👩‍💻 Autor
-
-XueMei Lin
-Estudiante de Máster en Desarrollo de Videojuegos
-
----
-
-## 🎥 Portfolio
-
-El proyecto incluye un video explicativo en inglés donde se presenta el prototipo desde una perspectiva técnica.
