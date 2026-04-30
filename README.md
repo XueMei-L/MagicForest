@@ -55,7 +55,7 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
   * Death
 * Transiciones entre estados
 * Uso de **Animation Events** para sincronizar animación y lógica
-![alt text](image.png)
+![alt text](./imgs/image.png)
 
 ---
 
@@ -184,6 +184,16 @@ Permite separar la lógica del juego de los elementos visuales.
 
 ## 🎮 Algunos Gameplay
 
-![alt text](Unity_8sMIRayONB.gif)
+![alt text](./imgs/Unity_8sMIRayONB.gif)
 
-![alt text](Unity_rtnXYre8KD.gif)
+![alt text](./imgs/Unity_rtnXYre8KD.gif)
+
+![alt text](./imgs/Unity_lPx6kCGNZI.gif)
+
+![alt text](./imgs/Unity_AKXEsIm6WK.gif)
+
+![alt text](./imgs/Unity_DDRznVW7Ag.gif)
+
+![alt text](./imgs/Unity_zuJ5Cn5pNy.gif)
+
+![alt text](./imgs/Unity_ETLRnRHmqh.gif)
