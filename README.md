@@ -184,4 +184,6 @@ Permite separar la lógica del juego de los elementos visuales.
 
 ## 🎮 Algunos Gameplay
 
-![alt text](./imgs/Unity_sMNW8I5ykI.gif)
+![alt text](Unity_8sMIRayONB.gif)
+
+![alt text](Unity_rtnXYre8KD.gif)
