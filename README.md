@@ -176,7 +176,7 @@ Permite separar la lógica del juego de los elementos visuales.
 * [ ] Más tipos de enemigos y comportamientos
 * [ ] Nuevas escenas (verano, otoño, invierno)
 * [ ] Mejora de la UI, añadir configuraciones u mejora de los UI existentes
-* [ ] Más animaciones del jugador o enemigo
+* [ ] Más animaciones del jugador o enemigos
 * [ ] Diseñar más personajes que puede el usuario puede selecionar 
 * [ ] Diseñar más tipos de arma
 
@@ -195,3 +195,4 @@ Permite separar la lógica del juego de los elementos visuales.
 ![alt text](./imgs/Unity_zuJ5Cn5pNy.gif)
 
 ![alt text](./imgs/Unity_ETLRnRHmqh.gif)
+
