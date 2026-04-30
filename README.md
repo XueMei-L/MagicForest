@@ -57,7 +57,7 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 
 ### ⭐ Parte del perfil
 
-* Obtener experiencia cuando mata a un enemigo
+* Obtener experiencia cuando mata a un enemigo o recolectar objetos
 * Perdida de vida cuando un enemigo causa daño al jugador
 ![alt text](Unity_qSceVfu1d5-1.gif)
 ---
@@ -65,7 +65,7 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 ### 🎁 Object Pooling
 
 * Implementado en la escena de recompensa
-* Reutilización de objetos en lugar de instanciación/destrucción constante ayuda a mejora del rendimiento y gestión de memoria
+* Reutilización de objetos en lugar de instanciación/destrucción constante que ayuda a mejorar el rendimiento y la gestión de memoria
 ![alt text](Unity_SbhvpjYzZo.gif)
 ---
 
@@ -74,8 +74,11 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 Uso de Tilemap para la construcción del nivel con varias capas:
 
 * Capa de suelo (colisiones)
+  ![alt text](image-1.png)
 * Capa de decoración
+  ![alt text](image-2.png)
 * Capa de elementos interactivos
+  ![alt text](image-3.png)
 
 Permite separar la lógica del juego de los elementos visuales.
 
@@ -84,18 +87,19 @@ Permite separar la lógica del juego de los elementos visuales.
 ### 🌄 Fondos (Parallax y Scrolling)
 
 * Parallax en la escena principal para simular profundidad
+  ![alt text](image-4.png)
+  ![alt text](Unity_sEfY9BCDxK.gif)
 * Scrolling en la escena de recompensa
+  ![alt text](Unity_fB3DEwIiHK.gif)
 
 ---
 
-### 🎮 Gestión de Escenas
+### 🎮 Escenas implementadas
 
-* Múltiples escenas:
+* Menú principal con sistema de inicio y salida del juego  
+* Escena principal (bosque en primavera) con exploración, combate y mecánicas principales  
+* Escena de recompensa con sistema de recolección y object pooling  
 
-  * Escena principal
-  * Escena de recompensa
-* Transiciones entre escenas
-* Uso de triggers para cambio de escena
 
 ---
 
