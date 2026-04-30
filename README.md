@@ -184,7 +184,7 @@ Permite separar la lógica del juego de los elementos visuales.
 
 ## 🎮 Algunos Gameplay
 
-(Si no muestran los gifs, es porque están cargano)
+(Si no muestran los gifs, es porque están carganodo)
 
 ![alt text](./imgs/Unity_8sMIRayONB.gif)
 
