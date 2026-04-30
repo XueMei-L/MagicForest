@@ -56,6 +56,7 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 * Transiciones entre estados
 * Uso de **Animation Events** para sincronizar animación y lógica
 ![alt text](image.png)
+
 ---
 
 ### 👾 Sistema de Enemigos
@@ -69,6 +70,7 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
   ![alt text](./imgs/Unity_oYG2hug413.gif)
 * Enemigo Boss
   ![alt text](./imgs/Unity_VftSjPFT5U.gif)
+
 ---
 
 ### ⭐ Parte del perfil
@@ -76,6 +78,7 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 * Obtener experiencia cuando mata a un enemigo o recolectar objetos
 * Perdida de vida cuando un enemigo causa daño al jugador
 ![alt text](./imgs/Unity_qSceVfu1d5-1.gif)
+
 ---
 
 ### 🎁 Object Pooling
@@ -83,6 +86,7 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 * Implementado en la escena de recompensa
 * Reutilización de objetos en lugar de instanciación/destrucción constante que ayuda a mejorar el rendimiento y la gestión de memoria
 ![alt text](./imgs/Unity_SbhvpjYzZo.gif)
+
 ---
 
 ### 🌲 Sistema de Tilemap
@@ -137,11 +141,10 @@ Permite separar la lógica del juego de los elementos visuales.
 ---
 
 ### 🎥 Cámara (El uso de Cinemachine)
-  ![alt text](./imgs/Unity_JsLJSQBjvA.gif)
 * Uso de Cinemachine Virtual Camera
-* Seguimiento del jugador
-  
-* Control del borde
+  ![alt text](./imgs/Unity_JsLJSQBjvA.gif)
+  * Seguimiento del jugador
+  * Control del borde
   ![alt text](./imgs/image-8.png)
 
 ---
@@ -154,6 +157,7 @@ Permite separar la lógica del juego de los elementos visuales.
   * Efectos de sonido
   * Control general del audio
   ![alt text](./imgs/Unity_dqF9os9JVA.gif)
+
 ---
 
 ## 🛠️ Tecnologías Utilizadas
@@ -174,8 +178,10 @@ Permite separar la lógica del juego de los elementos visuales.
 * [ ] Mejora de la UI, añadir configuraciones u mejora de los UI existentes
 * [ ] Más animaciones del jugador o enemigo
 * [ ] Diseñar más personajes que puede el usuario puede selecionar 
+* [ ] Diseñar más tipos de arma
 
 ---
 
 ## 🎮 Algunos Gameplay
 
+![alt text](Unity_sMNW8I5ykI.gif)
