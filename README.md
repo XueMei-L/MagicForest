@@ -77,7 +77,7 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 
 * Obtener experiencia cuando mata a un enemigo o recolectar objetos
 * Perdida de vida cuando un enemigo causa daño al jugador
-![alt text](./imgs/Unity_qSceVfu1d5-1.gif)
+![alt text](./imgs/Unity_qSceVfu1d5.gif)
 
 ---
 
