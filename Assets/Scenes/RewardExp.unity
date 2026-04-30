@@ -170,7 +170,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 10
 --- !u!222 &175566
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -764,6 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 175565}
+  keyUI: {fileID: 0}
 --- !u!1 &214728751
 GameObject:
   m_ObjectHideFlags: 0
@@ -3322,6 +3323,7 @@ MonoBehaviour:
   speed: 5
   jumpForce: 7
   hasKey: 1
+  starEffectPrefab: {fileID: 0}
 --- !u!61 &1651945644
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3500,6 +3502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarFill: {fileID: 1663835624}
+  HpText: {fileID: 0}
 --- !u!114 &1651945650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4637,7 +4640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7570511c9b8414d964d2cb7eac28eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTime: 3
+  levelTime: 10
 --- !u!4 &2119126231
 Transform:
   m_ObjectHideFlags: 0

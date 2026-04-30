@@ -21,7 +21,6 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 * Sistema de animaciones
 * Recolección de objetos usando la tecnica de pooling
 * El uso de Sonido
-
 * Scrolling y Parallax del fondo
 * Uso de Tilemap con múltiples capas
 * Sistema de UI
@@ -35,7 +34,7 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 ### ⭐ Sistema de Jugador y sistema de animaciones
 * Uso de Animator Controller con estados:
   * Idle
-  * WalkRight
+  * WalkRight (utiliza flix para realizar walkLeft)
   * Attack
   * Death
 * Transiciones entre estados
@@ -45,37 +44,29 @@ En este prototipo se han implementado las siguientes mecánicas y sistemas reque
 
 ### 👾 Sistema de Enemigos
 
-* IA básica de patrulla entre dos puntos
-* Movimiento mediante físicas (Rigidbody2D)
-* Sistema de daño por colisión
-* Enemigo tipo boss con ataque periódico (spawn de proyectiles)
+* Implementación de diferentes tipos de enemigos
+  * Enemigo básico (hace daño cuando colisiona)
+  * Enemigo Boss (con ataque frecuentemente)
+* Movimiento animaciones de desplazamiento
 
+* Enemigo Básico
+  ![alt text](Unity_oYG2hug413.gif)
+* Enemigo Boss
+  ![alt text](Unity_VftSjPFT5U.gif)
 ---
 
-### 🔥 Sistema de Combate
+### ⭐ Parte del perfil
 
-* Ataque del jugador mediante efectos (prefabs)
-* Detección de colisiones entre ataque y enemigo
-* Sistema de daño
-* Feedback visual básico
-
----
-
-### ⭐ Sistema de Experiencia y Nivel
-
-* Ganancia de experiencia al derrotar enemigos o recolectar objetos
-* Sistema de subida de nivel
-* Incremento progresivo del requisito de experiencia
-* Actualización dinámica de la UI
-
+* Obtener experiencia cuando mata a un enemigo
+* Perdida de vida cuando un enemigo causa daño al jugador
+![alt text](Unity_qSceVfu1d5-1.gif)
 ---
 
 ### 🎁 Object Pooling
 
 * Implementado en la escena de recompensa
-* Reutilización de objetos en lugar de instanciación/destrucción constante
-* Mejora del rendimiento y gestión de memoria
-
+* Reutilización de objetos en lugar de instanciación/destrucción constante ayuda a mejora del rendimiento y gestión de memoria
+![alt text](Unity_SbhvpjYzZo.gif)
 ---
 
 ### 🌲 Sistema de Tilemap
